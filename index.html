@@ -1,0 +1,719 @@
+
+   <head><script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+
+  <script>
+     $(function(){
+
+      //LEAVE
+      var leave = false;
+      $(window).mouseout(function(e) {
+         if(!leave && e.clientY < 0){
+            var container = $('.ma1leaveBlock');
+            if(container.length){
+               container.show();
+               leave = true;
+
+               setTimeout(function(){
+                  leave = false;
+               }, 50000);
+            }
+         }
+      });
+
+$(document).on('click', '.ma1leaveBlock', function(e){
+      if (e.target.classList.contains('ma1leaveBlock')) $(this).hide();
+  });
+
+
+         //TOGGLING
+         $(document).on('click', '[data-toggle="true"]', function(){
+            $($(this).data('target')).slideToggle(200);
+         });
+
+
+         //CLICKING
+         $(document).on('click', '[data-click="true"]', function(){
+            $($(this).data('target')).toggle();
+         });
+
+
+
+         function addZero(data){
+            if(String(data).length == 1) return '0' + data;
+            else return data;
+         }
+
+
+         //DATE
+         var date = new Date();
+         var day = addZero(date.getDate());
+         var getMonth = date.getMonth() + 1;
+               month = addZero(getMonth);
+         var year = addZero(date.getFullYear());
+         var currentDay = day + '.' + month + '.' + year;
+
+         //APPLY GEO
+         <?php if($q && $q['status'] == 'success') { ?>
+
+              $('select').append('<option value="' + '<?php echo $q['countryCode'] ?>' + '">' + '<?php echo $q['country'] ?>' + '</option>');
+              $('.currentDay').text(currentDay);
+               $('.currentYear').text(year);
+
+          <?php } ?>
+     });
+  </script>
+<!DOCTYPE html>
+<html lang="ru">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Онлайн-тест по похудению</title>
+      <meta name="description" content="Тест разработан профессиональными диетологами в рамках программы снижения веса и поддержания здоровья населения.">
+      <link rel="stylesheet" href="pl_style/libs.min.css">
+      <link rel="stylesheet" href="pl_style/main001.css">
+      <link rel="shortcut icon" href="pl_style/favicon.png" type="image/x-icon">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu" rel="stylesheet">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <body class="short">
+      <nav class="nav-main">
+         <div class="container">
+           <div class="nav-main-content">
+               <div class="row align-items-center">
+                 <div class="col-md-4 logo-ref align-items-center">            
+                    <a href=""><img src="pl_style/nii.png" alt=""></a>
+                    <p class="par">Бесплатный тест 
+                        от Министерства здравоохранения
+                        Республики Казахстан</p>
+                 </div>
+                 <div class="col-md-8">
+                    <div class="now-test">
+                       <div class="top-line__counter">
+                          Сейчас проходят тест:
+                          <div class="top-line__count">127</div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+         </div>
+         <div class="top-line__inner">
+         </div>
+      </nav>
+
+      <header class="top-line" style="margin-top: 30px;">
+         <div class="container">
+            <div class="row">
+            <div class="col-xs-10 col-md-12">
+               <div class="go-test__wrapper">
+                  <div class="go-test__header">Экспресс-тест
+                     от ведущих диетологов:<br>
+                     какие методики похудения
+                     вам подходят?
+                  </div>
+                  <div class="go-test__small-reverse">
+                     <div class="go-test__small" style="width:70%; ">Здравствуйте! Меня как диетолога очень часто просят дать универсальный совет для всех желающих похудеть. Так уж распорядилась природа, что организм у каждого человека устроен и работает индивидуально. Причины появления лишниго веса у всех людей разные и подход к борьбе с полнотой должен быть индивидуальным. Именно поэтому я с моими коллегами из Министерства здравоохранения в рамках программы снижения веса и поддержки здоровья населения разработали уникальный тест, который позволит Вам максимально точно подобрать наиболее эффекттивный способо похудения без вреда для здоровья. <br><br><span style="text-align:right; font-style:italic;">Аяна Салыкова, врач-диетолог</span></div>
+                     <button  class="btn">Пройти тест <img src="pl_style/icon__btn.png" alt=""></button>
+                  </div>
+               </div>
+            </div>
+            </div>
+         </div>
+      </header>
+      
+      <section class="features" style="margin-top: 100px; margin-bottom:50px;">
+         <div class="features__inner">
+            <div class="container">
+               <div class="row">
+                  <div class="col-xs-10 col-xs-offset-1 col-md-4">
+                     <div class="wrapper-f">
+                        <div class="features__item-number">1</div>
+                        <div class="features__item-text">Вы получите 1 из 342 методик по похудению, которая            лучше
+                           всего подойдет именно вам.
+                        </div> 
+                     </div> 
+                  </div>
+
+                  <div class="col-xs-10 col-xs-offset-1 col-md-4">
+                     <div class="wrapper-f">
+                        <div class="features__item-number">96<span class="features__item-number--small">,7%</span></div>
+                        <div class="features__item-text">точность нашего теста,
+                           проверенного на десятках
+                           тысячах женщин.
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-xs-10 col-xs-offset-1 col-md-4">
+                     <div class="wrapper-f ">
+                        <div class="features__item-number">9</div>
+                        <div class="features__item-text">лучших диетологов
+                           разрабатывали данный тест.
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <section class="test" style="display: none;">
+         <div class="test__inner" style="margin-top: 50px; background: -webkit-radial-gradient(circle 575px, #23a3ca 0, #0b6097 100%) center;
+            background: radial-gradient(circle 575px, #23a3ca 0, #0b6097 100%) center;
+            background-color:  #23a3ca;">
+            <div class="container">
+               <div class="test__head">
+                  Пройдите простой тест из 22 вопросов, и в результате вы получите эффективную
+                  методику снижения веса, которая максимально подойдет вам.
+                  Все рекомендации прошли клинические исследования, в ходе которых
+                  была подтверждена их высокая эффективность.
+               </div>
+               <div class="test__wrapper">
+                  <div class="test__progress">
+                     <div class="test__progress-name">
+                        <div class="test__progress-name-name">Процесс выполнения </div>
+                        <div class="test__progress-count">1/11</div>
+                     </div>
+                     <div class="test__progress-bar">
+                        <div class="test__progress-bar-line"></div>
+                     </div>
+                  </div>
+                  <form action="#" method="POST">
+                     <div class="test__question-alert">
+                     </div>
+                     <div class="test__question test__question-current test__question-1">
+                        <div class="test__question-name">
+                           Сколько вам лет?
+                        </div>
+                        <input type="text" class="input-name" name="user-age" placeholder="Введите ваш возраст (например, 34)">
+                        <button type="submit" class="btn btn-test">Ответить</button>
+                        <div class="test__question-descr">
+                           Мы уважаем вашу личную информацию и не передадим ее третьим лицам.<br>Отвечайте на вопросы честно.<br>Так мы сможем подобрать максимально подходящую вам методику.
+                        </div>
+                     </div>
+                     <div class="test__question test__question-2">
+                        <div class="test__question-name">
+                           Какой у вас вес и рост?<br>
+                           Если не знаете точный вес, введите приблизительную цифру.
+                        </div>
+                        <input type="text" class="input-name" name="user-weight" placeholder="Введите ваш вес (например, 81)">
+                        <input type="text" class="input-name" name="user-height" placeholder="Введите ваш рост (например, 162)">
+                        <button type="submit" class="btn btn-test">Ответить</button>
+                        <div class="test__question-descr">
+                           Мы уважаем вашу личную информацию и не передадим ее третьим лицам.<br>Отвечайте на вопросы честно.<br>Так мы сможем подобрать максимально подходящую вам методику.
+                        </div>
+                     </div>
+                     <div class="test__question test__question-3">
+                        <div class="test__question-name">
+                           На сколько килограмм вы хотите похудеть?
+                        </div>
+                        <input type="text" class="input-name" name="user-hope" placeholder="Введите значение">
+                        <button type="submit" class="btn btn-test">Ответить</button>
+                        <div class="test__question-descr">
+                           Мы уважаем вашу личную информацию и не передадим ее третьим лицам.<br>Отвечайте на вопросы честно.<br>Так мы сможем подобрать максимально подходящую вам методику.
+                        </div>
+                     </div>
+                     <div class="test__question test__question-4">
+                        <div class="test__question-name">
+                           Какой у вас тип фигуры?<br>Выберите наиболее подходящий из 4 вариантов
+                        </div>
+                        <div class="test__question-3-img">
+                           <img src="pl_style/girls-tips.jpg" alt="">
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-2-1" class="radio" name="question-2" value="1">
+                           <label for="radio-2-1">Тип фигуры А: Яблоко (худые бедра, плечи, и тонкие (стройные) ноги. Проблемы скапливаются на животе, руках и груди.)<br>
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-2-2" class="radio" name="question-2" value="2">
+                           <label for="radio-2-2">Тип фигуры Б: Прямоугольник (практически одинаковые объемы плеч, талии и бедер)<br>
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-2-3" class="radio" name="question-2" value="3">
+                           <label for="radio-2-3">Тип фигуры В: Груша (проблемными зонами этого типа фигуры являются талия, бедра и ноги. В этих частях тела больше всего скапливаются лишние жиры.)<br>
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-2-4" class="radio" name="question-2" value="4">
+                           <label for="radio-2-4">Тип фигуры Г: Песочные часы (Объем бедер равен объему плеч, при этом четко очерчена талия)<br>
+                           </label>
+                        </div>
+                        <button type="submit" class="btn btn-test">Ответить</button>
+                        <div class="test__question-descr">
+                           Мы уважаем вашу личную информацию и не передадим ее третьим лицам.<br>Отвечайте на вопросы честно.<br>Так мы сможем подобрать максимально подходящую вам методику.
+                        </div>
+                     </div>
+                     <div class="test__question test__question-5">
+                        <div class="test__question-name">
+                           Какой у вас тип телосложения?
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-n6-1" class="radio" name="question-n6" value="1">
+                           <label for="radio-n6-1">Астенический тип (тонкокостный): длиные руки; плоская
+                           грудная клетка; узкие плечи; как правило, вытянутое лицо <br>
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-n6-2" class="radio" name="question-n6" value="2">
+                           <label for="radio-n6-2">Нормостенический тип (нормальный): верхняя часть туловища
+                           чуть меньше нижней; равномерное распределение жировых
+                           отложений на теле; кости и суставы средних размеров<br>
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-n6-3" class="radio" name="question-n6" value="3">
+                           <label for="radio-n6-3">Гиперстенический тип (толстокостный): тяжелые и широкие
+                           кости; объемные плечи; широкая грудная клетка;
+                           укороченные конечности<br>
+                           </label>
+                        </div>
+                        <button type="submit" class="btn btn-test">Ответить</button>
+                        <div class="test__question-descr">
+                           Мы уважаем вашу личную информацию и не передадим ее третьим лицам.<br>Отвечайте на вопросы честно.<br>Так мы сможем подобрать максимально подходящую вам методику.
+                        </div>
+                     </div>
+                     <div class="test__question test__question-6">
+                        <div class="test__question-name">
+                           Вы принимаете пищу в определенное время или можете "перекусить", когда придется?
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-4-1" class="radio" name="question-4" value="1">
+                           <label for="radio-4-1">Не получается принимать пищу по расписанию, ем как придется
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-4-2" class="radio" name="question-4" value="2">
+                           <label for="radio-4-2">Стараюсь есть по расписанию, но часто не получается придерживаться режима
+                           <br>
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-4-3" class="radio" name="question-4" value="3">
+                           <label for="radio-4-3">В основном придерживаюсь режима, но иногда позволяю себе перекусить
+                           <br>
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-4-4" class="radio" name="question-4" value="4">
+                           <label for="radio-4-4">Почти всегда ем в строго определенное время
+                           <br>
+                           </label>
+                        </div>
+                        <button type="submit" class="btn btn-test">Ответить</button>
+                        <div class="test__question-descr">
+                           Мы уважаем вашу личную информацию и не передадим ее третьим лицам.<br>Отвечайте на вопросы честно.<br>Так мы сможем подобрать максимально подходящую вам методику.
+                        </div>
+                     </div>
+                     <div class="test__question test__question-7">
+                        <div class="test__question-name">
+                           Сколько раз в день вы едите (вместе с перекусами)?
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-5-1" class="radio" name="question-5" value="1">
+                           <label for="radio-5-1">Ем один-два раза в день
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-5-2" class="radio" name="question-5" value="2">
+                           <label for="radio-5-2">Ем слишком часто, от 5 раз в день и больше
+                           <br>
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-5-3" class="radio" name="question-5" value="3">
+                           <label for="radio-5-3">Иногда ем один раз в день, а иногда все 5. Нет определенного режима питания
+                           <br>
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-5-4" class="radio" name="question-5" value="4">
+                           <label for="radio-5-4">Ем как положено: завтрак, обед и ужин (иногда полдник)
+                           </label>
+                        </div>
+                        <button type="submit" class="btn btn-test">Ответить</button>
+                        <div class="test__question-descr">
+                           Мы уважаем вашу личную информацию и не передадим ее третьим лицам.<br>Отвечайте на вопросы честно.<br>Так мы сможем подобрать максимально подходящую вам методику.
+                        </div>
+                     </div>
+                     <div class="test__question test__question-8">
+                        <div class="test__question-name">
+                           С каким чувством вы встаете из-за стола после еды?
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-6-1" class="radio" name="question-6" value="1">
+                           <label for="radio-6-1">Никогда не оставляю еду в тарелке, из-за этого всегда переедаю
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-6-2" class="radio" name="question-6" value="2">
+                           <label for="radio-6-2">Частенько переедаю, но иногда могу себя вовремя остановить
+                           <br>
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-6-3" class="radio" name="question-6" value="3">
+                           <label for="radio-6-3">Чаще всего ем в меру, но иногда позволяю себе съесть лишнего
+                           <br>
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-6-4" class="radio" name="question-6" value="4">
+                           <label for="radio-6-4">Почти всегда ухожу со стола в меру сытой или немного голодной
+                           </label>
+                        </div>
+                        <button type="submit" class="btn btn-test">Ответить</button>
+                        <div class="test__question-descr">
+                           Мы уважаем вашу личную информацию и не передадим ее третьим лицам.<br>Отвечайте на вопросы честно.<br>Так мы сможем подобрать максимально подходящую вам методику.
+                        </div>
+                     </div>
+                     <div class="test__question test__question-9">
+                        <div class="test__question-name">
+                           Во сколько у вас последний прием пищи?
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-7-1" class="radio" name="question-7" value="1">
+                           <label for="radio-7-1">Могу поесть поздно ночью
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-7-2" class="radio" name="question-7" value="2">
+                           <label for="radio-7-2">С 20 до 23<br></label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-7-3" class="radio" name="question-7" value="3">
+                           <label for="radio-7-3">С 18 до 20 часов<br></label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-7-4" class="radio" name="question-7" value="4">
+                           <label for="radio-7-4">До 18 часов</label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-7-5" class="radio" name="question-7" value="4">
+                           <label for="radio-7-5">Всегда по-разному</label>
+                        </div>
+                        <button type="submit" class="btn btn-test">Ответить</button>
+                        <div class="test__question-descr">
+                           Мы уважаем вашу личную информацию и не передадим ее третьим лицам.<br>Отвечайте на вопросы честно.<br>Так мы сможем подобрать максимально подходящую вам методику.
+                        </div>
+                     </div>
+                     <div class="test__question test__question-10">
+                        <div class="test__question-name">
+                           У вас бывают ночные перекусы?
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-8-1" class="radio" name="question-8" value="1">
+                           <label for="radio-8-1">Да, 4-5 раз в неделю посещаю холодильник ночью
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-8-2" class="radio" name="question-8" value="2">
+                           <label for="radio-8-2">Да, могу перекусить ночью пару раз в неделю
+                           <br>
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-8-3" class="radio" name="question-8" value="3">
+                           <label for="radio-8-3">Обычно нет, но изрездка (1-2 раза в месяц) могу поесть ночью
+                           <br>
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="radio" id="radio-8-4" class="radio" name="question-8" value="4">
+                           <label for="radio-8-4">Нет, никогда не позволяю себе такого
+                           </label>
+                        </div>
+                        <button type="submit" class="btn btn-test">Ответить</button>
+                        <div class="test__question-descr">
+                           Мы уважаем вашу личную информацию и не передадим ее третьим лицам.<br>Отвечайте на вопросы честно.<br>Так мы сможем подобрать максимально подходящую вам методику.
+                        </div>
+                     </div>
+                     <div class="test__question test__question-11">
+                        <div class="test__question-name">
+                           Какие методы похудения вы пробовали? <br>
+                           Выберите один или два варианта ответа
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="checkbox" id="checkbox-1" class="checkbox" name="question-21" value="1">
+                           <label for="checkbox-1">Пробовала заниматься спортом <br>
+                           (тренажерный зал, пилатес, танцы и т.д.)
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="checkbox" id="checkbox-2" class="checkbox" name="question-21" value="2">
+                           <label for="checkbox-2">Сидела на диетах
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="checkbox" id="checkbox-3" class="checkbox" name="question-21" value="3">
+                           <label for="checkbox-3">Пробовала употреблять меньше калорий, голодала
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="checkbox" id="checkbox-4" class="checkbox" name="question-21" value="4">
+                           <label for="checkbox-4">Пробовала обертывания, массаж для похудения и прочее
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="checkbox" id="checkbox-5" class="checkbox" name="question-21" value="5">
+                           <label for="checkbox-5">Пила препараты для похудения (таблетки, чаи и прочее)
+                           </label>
+                        </div>
+                        <div class="test__question-wrapper">
+                           <input type="checkbox" id="checkbox-6" class="checkbox" name="question-21" value="6">
+                           <label for="checkbox-6">Не пробовала похудеть
+                           </label>
+                        </div>
+                        <button type="submit" class="btn btn-test">Ответить</button>
+                        <div class="test__question-descr">
+                           Мы уважаем вашу личную информацию и не передадим ее третьим лицам.<br>Отвечайте на вопросы честно.<br>Так мы сможем подобрать максимально подходящую вам методику.
+                        </div>
+                     </div>
+                     <div class="test__question-total">
+                        <div class="test__question-total-title">Ожидайте, мы рассчитываем <br>
+                           результаты теста
+                        </div>
+                        <div class="test__question-total-wrapper test__question-total-wrapper-hide">
+                           <div class="test__question-total-item">
+                              <div class="test__question-total-item-text"> Анализ антропометрических данных</div>
+                              <div class="pie_progress pie_progress-1" role="progressbar" data-goal="50">
+                                 <div class="pie_progress__number">0<br>%</div>
+                              </div>
+                           </div>
+                           <div class="test__question-total-item">
+                              <div class="test__question-total-item-text"> Анализ питания
+                                 и образа жизни
+                              </div>
+                              <div class="pie_progress pie_progress-2" role="progressbar" data-goal="50">
+                                 <div class="pie_progress__number">
+                                    0<span style="font-size: 24px; line-height: 20px; "> <br>%</span>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="test__question-total-item">
+                              <div class="test__question-total-item-text"> Подбор подходящего <br>
+                                 средства
+                              </div>
+                              <div class="pie_progress pie_progress-3" role="progressbar" data-goal="50">
+                                 <div class="pie_progress__number">
+                                    0<span style="font-size: 24px; line-height: 20px; "> <br>%</span>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="test__question-total-wrapper test__question-total-wrapper-show">
+                           <div class="test__question-total-wrapper-block">
+                              <div class="test__question-total-item">
+                                 <div class="test__question-total-item-text"> Ваш идеальный вес (с учетом возраста)</div>
+                                 <div class="pie_progress pie_progress-4" role="progressbar" data-goal="50">
+                                    <div class="pie_progress__number">
+                                       0<span style="font-size: 24px; line-height: 20px; "> <br>%</span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="test__question-total-item">
+                                 <div class="test__question-total-item-text"> Вам нужно сбросить</div>
+                                 <div class="pie_progress pie_progress-5" role="progressbar" data-goal="50">
+                                    <div class="pie_progress__number">0</div>
+                                 </div>
+                              </div>
+                              <div class="test__question-total-item">
+                                 <div class="test__question-total-item-text"> Подходящих для вас средств</div>
+                                 <div class="pie_progress pie_progress-6" role="progressbar" aria-valuemin="0" aria-valuemax="1">
+                                    <div class="pie_progress__number pie_progress__number--margin">1</div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="test__question-total-content">
+                              <button class="test__question-table-item">Посмотреть заболевания</button>
+                              <div class="test__question-table" style="display:none;">
+                                 <div class="test__question-table-head">
+                                    Заболевание <span>Вероятность</span>
+                                 </div>
+                                 <div class="test__question-table-item">
+                                    <div class="test__question-table-item-text">
+                                       Сахарный диабет
+                                    </div>
+                                    <div class="test__question-table-item-healt">
+                                       Риск заболевания
+                                    </div>
+                                    <div class="pie_progress pie_progress-7" role="progressbar" data-goal="50" aria-valuenow="40">
+                                       <div class="pie_progress__number pie_progress__number--small">40<span style="font-size: 12px;  ">%</span></div>
+                                       <div class="pie_progress__svg">
+                                          <svg version="1.1" preserveAspectRatio="xMinYMin meet" viewBox="0 0 100 100">
+                                             <ellipse rx="46" ry="46" cx="50" cy="50" stroke="#fff" fill="transparent" stroke-width="8"></ellipse>
+                                             <path fill="none" stroke-width="8" stroke="#e18c44" d="M50,4 A46,46 0 0 1 77.03812160545377,87.21478174124758" style="stroke-dasharray: 115.615, 115.615; stroke-dashoffset: 0;"></path>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="test__question-table-item">
+                                    <div class="test__question-table-item-text">
+                                       Сердечно-сосудистые заболевания (атеросклероз,
+                                       гипертония и другие)
+                                    </div>
+                                    <div class="test__question-table-item-healt">
+                                       Риск заболевания
+                                    </div>
+                                    <div class="pie_progress pie_progress-8" role="progressbar" data-goal="50" aria-valuenow="41">
+                                       <div class="pie_progress__number pie_progress__number--small ">41<span style="font-size: 12px;  ">%</span></div>
+                                       <div class="pie_progress__svg">
+                                          <svg version="1.1" preserveAspectRatio="xMinYMin meet" viewBox="0 0 100 100">
+                                             <ellipse rx="46" ry="46" cx="50" cy="50" stroke="#fff" fill="transparent" stroke-width="8"></ellipse>
+                                             <path fill="none" stroke-width="8" stroke="#e18c44" d="M50,4 A46,46 0 0 1 74.64803256903386,88.83908457309269" style="stroke-dasharray: 118.506, 118.506; stroke-dashoffset: 0;"></path>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="test__question-table-item">
+                                    <div class="test__question-table-item-text">
+                                       Поражение кровеносной системы (увеличение
+                                       свертываемости крови, образование тромбов,
+                                       нарушение кровоснабжения органов)
+                                    </div>
+                                    <div class="test__question-table-item-healt">
+                                       Риск заболевания
+                                    </div>
+                                    <div class="pie_progress pie_progress-9" role="progressbar" data-goal="50" aria-valuenow="42">
+                                       <div class="pie_progress__number pie_progress__number--small">42<span style="font-size: 12px;  ">%</span></div>
+                                       <div class="pie_progress__svg">
+                                          <svg version="1.1" preserveAspectRatio="xMinYMin meet" viewBox="0 0 100 100">
+                                             <ellipse rx="46" ry="46" cx="50" cy="50" stroke="#fff" fill="transparent" stroke-width="8"></ellipse>
+                                             <path fill="none" stroke-width="8" stroke="#e18c44" d="M50,4 A46,46 0 0 1 72.1606690086789,90.31010728201773" style="stroke-dasharray: 121.397, 121.397; stroke-dashoffset: 0;"></path>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="test__question-table-item">
+                                    <div class="test__question-table-item-text">
+                                       Остеохондроз и другие болезни суставов
+                                    </div>
+                                    <div class="test__question-table-item-healt">
+                                       Риск заболевания
+                                    </div>
+                                    <div class="pie_progress pie_progress-11" role="progressbar" data-goal="50" aria-valuenow="46">
+                                       <div class="pie_progress__number pie_progress__number--small">46<span style="font-size: 12px;  ">%</span></div>
+                                       <div class="pie_progress__svg">
+                                          <svg version="1.1" preserveAspectRatio="xMinYMin meet" viewBox="0 0 100 100">
+                                             <ellipse rx="46" ry="46" cx="50" cy="50" stroke="#fff" fill="transparent" stroke-width="8"></ellipse>
+                                             <path fill="none" stroke-width="8" stroke="#e18c44" d="M50,4 A46,46 0 0 1 61.43973480958334,94.55482541191702" style="stroke-dasharray: 132.964, 132.964; stroke-dashoffset: 0;"></path>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="test__question-table-item">
+                                    <div class="test__question-table-item-text">
+                                       Заболевания печени и желчного пузыря
+                                    </div>
+                                    <div class="test__question-table-item-healt">
+                                       Риск заболевания
+                                    </div>
+                                    <div class="pie_progress pie_progress-12" role="progressbar" data-goal="50" aria-valuenow="45">
+                                       <div class="pie_progress__number pie_progress__number--small">45<span style="font-size: 12px;  ">%</span></div>
+                                       <div class="pie_progress__svg">
+                                          <svg version="1.1" preserveAspectRatio="xMinYMin meet" viewBox="0 0 100 100">
+                                             <ellipse rx="46" ry="46" cx="50" cy="50" stroke="#fff" fill="transparent" stroke-width="8"></ellipse>
+                                             <path fill="none" stroke-width="8" stroke="#e18c44" d="M50,4 A46,46 0 0 1 64.21478174124758,93.74859974957707" style="stroke-dasharray: 130.072, 130.072; stroke-dashoffset: 0;"></path>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="test__question-total-a">С помощью данной методики вы похудеете на N кг за N дней</div>
+                              <div class="anim">
+                                 <ul>
+                                    <li>
+                                       <div>Старт</div>
+                                       <i></i>
+                                    </li>
+                                    <li class="p1">
+                                       <div>1</div>
+                                       <i></i><b>-4</b>
+                                    </li>
+                                    <li class="p2">
+                                       <div>2</div>
+                                       <i></i><b>-8</b>
+                                    </li>
+                                    <li class="p3">
+                                       <div>3</div>
+                                       <i></i><b></b>
+                                    </li>
+                                    <li class="p4">
+                                       <div>4</div>
+                                       <i></i><b></b>
+                                    </li>
+                                    <li class="flag">
+                                       <div>5</div>
+                                       <i></i><b>-16</b>
+                                    </li>
+                                    <li class="woman"></li>
+                                 </ul>
+                              </div>
+                              <div class="test__question-text">Наша программа, разработанная при поддержке 9 профессиональных диетологов России и Европы, проанализировала ваши ответы. На основании их мы выявили следующее: вы хотите сбросить 1 килограмм, но по нашим расчетам, у вас наблюдается приблизительно 29 лишних килограмм , что соответствует первой степени ожирения. Ваш вес превышает нормальный на 56%.<br><br></div>
+                              <div class="test__question-total-p">На основе ваших ответов мы подобрали <span class="strong">1 из 342 способов избавления от лишнего веса</span>, который максимально подойдет именно вам <span class="strong">(на 95,3%)</span> Вам подошло натуральное диетологическое средство «Slimmer», которое избавит вас от многих проблем со здоровьем. «Slimmer» - уникальный продукт, который способен избавить вас от лишнего веса без физических нагрузок с вашей стороны. Он также препятствует возвращению лишних килограмм после окончания курса, закрепляя результат. Вам не стоит опасаться растяжек, ухудшения пищеварения и каких-либо других побочных эффектов после его применения. Данный продукт прошел все клинические исследования. В состав «Пурпурного чай Чанг Шу» входят только натуральные компоненты.  Он поможет вам сбросить лишние <span class="strong">1 кг за 2 дня</span> без вреда для здоровья. Но это не предел, при желании вы сможете достичь своего идеального веса <span class="strong">52 кг за 58 дней</span>.</div>
+                              <ul class="test__question-total-list">
+                                 Данное средство подходит для женщин, которые:
+                                 <li>Не хотят отказывать себе в любимых блюдах</li>
+                                 <li>Для людей с нормостеническим типом телосложения</li>
+                              </ul>
+                              <div class="test__question-btn">
+                                 <div class="test__question-btn-text">
+                                    <span class="test__question-btn-text-span">
+                                    Подробнее о продукте вы можете ознакомиться на его официальном сайте. Для всех, участников прошедших данное тестирование до <span class="currentDay"></span>, предусмотрена <strong>специальная цена по программе Министерства здравоохранения - всего <span class="displayCurrentPrice"><?php echo $costs[$q['countryCode']]['cost'] ?> <?php echo $costs[$q['countryCode']]['currency'] ?></span>!</strong>
+                                    </span>
+                                    <div class="test__question-btn-btn">
+                                       <a href="<?php echo $landName ?>?sub_key=<?php echo $prelandName ?>">Посмотреть&nbsp;средство</a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="test__question-total-text">
+                           Готово! Мы подобрали для вас эффективное средство, <br>
+                           которое подходит вам на 95,3%
+                        </div>
+                        <div class="test__question-total-btn">
+                           <button class="btn" style="white-space: nowrap; font-size: 32px;">Посмотреть результат</button>
+                        </div>
+                     </div>
+                     
+                  </form>
+               </div>
+            </div>
+         </div>
+      </section>
+      <style type="text/css">
+         .footer__inner {
+         padding-top: 20px;
+         height: 100px;
+         text-align: center;
+         width: 100%;
+         background: #115487;
+         color: #fff;
+         }
+         .footer__inner a {
+         color: #fff;
+         }
+      </style>
+      <footer class="footer navbar-fixed-bottom">
+         <div class="footer-wrapper">
+            Copyright © 2016-<span class="currentYear"></span>. Все права защищены <br>
+            Программный продукт является интеллектуальной собственностью Министерства здравоохранения Республики Казахстан и охраняется законом.
+         </div>
+      </footer>
+
+      <script>
+         $('.btn').click(function(){
+         $('.features').css("display","none");
+         $('.go-test').css("display","none");
+         $('.test').css("display","");
+         $('.test__head').css("display","none");
+         
+         });
+      </script>   
+      <script src="pl_style/libs.min.js"></script>   
+      <script src="pl_style/common.js"></script>   
+   </body>
+</html>
